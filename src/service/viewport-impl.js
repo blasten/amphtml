@@ -611,6 +611,12 @@ export class Viewport {
       this.changed_(!oldSize || oldSize.width != newSize.width, 0);
     });
   }
+
+  relayout() {
+    this.fixedLayer_.update().then(() => {
+      this.changed_(true, 0);
+    });
+  }
 }
 
 
