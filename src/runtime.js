@@ -297,6 +297,11 @@ export function adoptShadowMode(global) {
      */
     global.AMP.attachShadowDoc = prepareAndAttachShadowDoc.bind(null,
         global, extensions);
+
+    const viewport = viewportFor(global);
+    global.AMP.viewport = viewport;
+    global.AMP.viewport.getScrollLeft = viewport.getScrollLeft.bind(viewport);
+    global.AMP.viewport.getScrollWidth = viewport.getScrollWidth.bind(viewport);
   });
 }
 
